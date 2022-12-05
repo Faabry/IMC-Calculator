@@ -43,15 +43,19 @@ def tabela():
                      VSeparator(color='#ff1493'),
                      sg.Column(layout2)]]
 
-    window1 = sg.Window('Para fazer um novo calculo feche essa janela',
+    window1 = sg.Window('Para Fazer Um Novo Cálculo Feche Essa Janela',
                         layout=mainly_layout, border_depth=3,
-                        location=(600, 120))
+                        location=(600, 120), finalize=True)
+
+    window1.bind('<Escape>', '_esc')
 
     while True:
         event, values = window1.read()
 
         if event == sg.WIN_CLOSED:
             break
+        elif event == '_esc':
+            window1.close()
 
 
 # ----- Mainly Program -----
@@ -102,14 +106,14 @@ def calculo_imc():
 
     window = sg.Window('Calculadora IMC do Tom',
                        layout=layout, background_color='#000', border_depth=6,
-                       location=(100, 120))
+                       location=(100, 120), finalize=True)
 
     while True:
         events, values = window.read()
 
-        if events == sg.WIN_CLOSED or events == 'Sair':
+        if events == sg.WIN_CLOSED:
             break
-        elif events == 'IMC':
+        elif events in 'IMC':
             p = str(values['kg']).replace(',', '.')
             a = str(values['altura']).replace(',', '.')
             peso = float(p)
@@ -120,6 +124,3 @@ def calculo_imc():
 
 
 calculo_imc()
-
-
-
