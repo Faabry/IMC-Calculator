@@ -72,10 +72,10 @@ def calculo_imc():
 
         [sg.Text('Sexo ', font='Times 40', background_color='#000',
          text_color='#F8F8FF', size=5),
-         sg.B('♂', size=(6, 2), button_color='#48d1cc on #000',
-         font='Times', key='masc'),
-         sg.B('♀', size=(6, 2), button_color='#ff1493 on #000',
-         font='Times', key='fem')],
+         sg.Checkbox('♂', 'group 1', background_color='black',
+                  text_color='#00FFFF', key='masc', font='Times 20'),
+         sg.Checkbox('♀', 'group 2', background_color='black',
+                  text_color='#ff1493', key='fem', font='Times 20')],
 
         [sg.Text('Idade', font='Times 40', background_color='#000',
          text_color='#F8F8FF', size=5),
